@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { SupabaseService } from '../../../shared/data-access/supabase.service';
-import { UserService } from '../../../shared/services/user.service';
+import { SupabaseService } from '../../../service/supabase.service';
+import { UserService } from '../../../service/user.service';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -84,7 +84,7 @@ export class SettingPerfilComponent implements OnInit {
                 alert('Perfil actualizado con éxito');
 
                 // Redirigir al perfil del usuario usando su role
-                this.router.navigate(['perfil', profileData.role]);
+                this.router.navigate(['perfil', this.usuario.role]);
 
             } catch (error) {
                 console.error('Error al actualizar perfil:', error);
